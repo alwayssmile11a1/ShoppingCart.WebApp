@@ -52,7 +52,8 @@
             </ul>
             <ul class="navbar-nav mr-0">
                 <li class="nav-item">
-                    <a class="nav-link"  href="#"> <span class = "glyphicon glyphicon-shopping-cart"></span>Cart</a>
+                    <a class="nav-link" href="#">
+                        <span class="glyphicon glyphicon-shopping-cart"></span>Cart</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">SignIn</a>
@@ -64,6 +65,27 @@
 
         </div>
     </nav>
+    <p>
+        <br/>
+        <br/>
+    </p>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home"
+                        aria-selected="false">Home</a>
+                    <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile"
+                        aria-selected="false">Profile</a>
+                    <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages"
+                        aria-selected="false">Messages</a>
+                    <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings"
+                        aria-selected="false">Settings</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 
