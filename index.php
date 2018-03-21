@@ -50,13 +50,56 @@
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </ul>
-            <ul class="navbar-nav mr-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <span class="glyphicon glyphicon-shopping-cart"></span>Cart</a>
+            <ul class="navbar-nav mr-1">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="cartDropDown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cart</a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="cartDropDown">
+                        <table class="table">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Image</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">SignIn</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="signInDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        SignIn
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="signInDropdown">
+                        <form class="px-4 py-3">
+                            <div class="form-group">
+                                <label for="FormEmail">Email address</label>
+                                <input type="email" class="form-control" id="FormEmail" placeholder="email@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="FormPassword">Password</label>
+                                <input type="password" class="form-control" id="FormPassword" placeholder="Password">
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                                <label class="form-check-label" for="dropdownCheck"> Remember me </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Sign in</button>
+                        </form>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">New around here? Sign up</a>
+                        <a class="dropdown-item" href="#">Forgot password?</a>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">SignUp</a>
@@ -88,17 +131,20 @@
             </div>
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">
-                        Featured
-                    </div>
+                    <div class="card-header">Products</div>
                     <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <div class="card-group">
+                            <div class="card border-info mb-3" style="max-width: 18rem;">
+                                <div class="card-header">product name</div>
+                                <div class="card-body">
+                                    <img class="card-img-top"></img>
+                                </div>
+                                <div class="card-footer">price</div>
+                            </div>
+
+                        </div>
                     </div>
-                    <div class="card-footer text-muted">
-                        2 days ago
-                    </div>
+                    <div class="card-footer text-muted"></div>
                 </div>
             </div>
         </div>
