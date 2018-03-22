@@ -7,13 +7,14 @@
     <title>Clover Shop</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="extensions/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/stylesheet.css" />
     <script src="extensions/js/jquery.min.js"></script>
     <script src="extensions/js/bootstrap.min.js"></script>
     <script src="main.js"></script>
+
 </head>
 
 <body>
-
     <!-- taskbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <!-- shop name -->
@@ -38,8 +39,8 @@
 
                 <!-- search bar -->
                 <form class="form-inline ml-5 my-lg-0">
-                    <input style="width:32rem" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <input style="width:32rem" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search_box">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id = "search_button">Search</button>
                 </form>
 
             </ul>
@@ -114,23 +115,18 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-2">
-                <?php include "categories.php"; ?>
-                <?php include "brands.php"; ?>
+                <!--these area will be driven by main.js  -->
+                <div id="categories"></div>
+                <div id="brands"></div>
             </div>
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">Products</div>
                     <div class="card-body">
-                        <div class="card-group">
-                            <div class="card border-info mb-3" style="max-width: 18rem;">
-                                <div class="card-header">product name</div>
-                                <div class="card-body">
-                                    <img class="card-img-top"></img>
-                                </div>
-                                <div class="card-footer">price</div>
-                            </div>
 
-                        </div>
+                        <!--driven by main.js  -->
+                        <div id="products"></div>
+
                     </div>
                     <div class="card-footer text-muted"></div>
                 </div>
