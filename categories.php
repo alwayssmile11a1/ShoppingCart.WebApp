@@ -15,7 +15,7 @@
                 {
         ?>
 
-                    <a href="#" class="list-group-item list-group-item-action category" categoryID="<?php echo $category["cat_id"] ?>">
+                    <a class="list-group-item list-group-item-action category" categoryID="<?php echo $category["cat_id"] ?>">
                         <?php echo $category["cat_title"]; ?>
                     </a>
 

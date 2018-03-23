@@ -4,28 +4,33 @@
     <div>
         <?php
         include "dbconnection.php";      
-
-        if(!isset($_POST["categoryID"])) return;
-
-        $categoryID = $_POST["categoryID"];
-        $brandID =  $_POST["brandID"];
+        if(!isset($_POST["sentData"])) return;
+        $data = $_POST["sentData"];
+        $detail =  $_POST["detail"];
 
         $product_query;
         
         //return 0 if two strings are equal
-        if(strcmp($categoryID,"random")==0)
+        if(strcmp($detail,"random")==0)
         {
             $product_query = "SELECT* FROM products ORDER BY RAND() LIMIT 9";
         }
         else
         {
-            if(!empty($categoryID))
+            if(strcmp($detail,"category")==0)
             {
-                $product_query = "SELECT* FROM products WHERE product_cat='$categoryID'";
+                $product_query = "SELECT* FROM products WHERE product_cat='$data'";
             }
             else
             {
-                $product_query = "SELECT* FROM products WHERE product_brand='$brandID'";
+                if(strcmp($detail,"brand")==0)
+                {
+                    $product_query = "SELECT* FROM products WHERE product_brand='$data'";
+                }
+                else
+                {
+                    $product_query = "SELECT* FROM products WHERE product_keywords LIKE'%$data%'";
+                }
             }
         }
 

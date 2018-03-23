@@ -10,15 +10,14 @@
     <link rel="stylesheet" href="css/stylesheet.css" />
     <script src="extensions/js/jquery.min.js"></script>
     <script src="extensions/js/bootstrap.min.js"></script>
-    <script src="main.js"></script>
-
+    <script src="mainscript.js"></script>
 </head>
 
 <body>
     <!-- taskbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <!-- shop name -->
-        <a class="navbar-brand" href="#">Clover Shop</a>
+        <a class="navbar-brand" href="#">CLOVERSHOP</a>
 
         <!-- collapse button when the web view is small -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -29,7 +28,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
+                    <a class="nav-link" href="#" id="home_button">Home
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -40,7 +39,7 @@
                 <!-- search bar -->
                 <form class="form-inline ml-5 my-lg-0">
                     <input style="width:32rem" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search_box">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id = "search_button">Search</button>
+                    <button class="btn btn-outline-success my-2 my-sm-0" id = "search_button">Search</button>
                 </form>
 
             </ul>
@@ -95,12 +94,13 @@
                             <button type="submit" class="btn btn-primary">Sign in</button>
                         </form>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">New around here? Sign up</a>
+                        <a class="dropdown-item" href="registration.php">New around here? Sign up</a>
                         <a class="dropdown-item" href="#">Forgot password?</a>
                     </div>
                 </li>
+                <!-- sign up button -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#">SignUp</a>
+                    <a class="nav-link" href="registration.php">SignUp</a>
                 </li>
             </ul>
 
