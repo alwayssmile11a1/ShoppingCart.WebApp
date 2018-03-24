@@ -3,8 +3,13 @@
 <body>
     <div>
         <?php
+
+        session_start();
+
         include "dbconnection.php";      
+
         if(!isset($_POST["sentData"])) return;
+
         $data = $_POST["sentData"];
         $detail =  $_POST["detail"];
 
@@ -43,12 +48,26 @@
         ?>
 
             <div class="card mb-3" style="width: 20rem;display:inline-block;" alt="Card image cap">
-                <img class="card-img-top maximagesize" src="resources/<?php echo $product["product_image"]; ?>"></img>
+                <img class="card-img-top maximagesize" src="resources/<?php echo $product['product_image']; ?>"></img>
                 <div class="card-body">
-                    <p class="card-text"> <?php echo $product["product_title"]; ?> </p>
-                    <a class="text-success"><?php echo $product["product_price"]; ?> </a>
-                    <button class="btn btn-primary btn-sm" style="float:right" type="submit"> AddToCard</button>
-                </div>    
+                    <p class="card-text">
+                        <?php echo $product["product_title"]; ?> </p>
+                    <a class="text-success">
+                        <?php echo $product["product_price"]; ?> </a>
+
+                    <?php 
+
+                    if(isset($_SESSION["user_id"]))
+                    {
+                        ?>
+                    <button class="btn btn-primary btn-sm addtocart" style="float:right" type="submit" productID="<?php echo $product['product_id']; ?>">AddToCard</button>
+                    <?php
+                    }
+
+                    
+
+                    ?>
+                </div>
             </div>
 
             <?php

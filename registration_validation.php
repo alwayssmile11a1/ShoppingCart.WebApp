@@ -13,8 +13,6 @@
     $repassword = md5($_POST["repassword"]);
     $mobile = $_POST["mobilephone"];
 
-    echo "";
-
     //check valid 
     if(!isset($_POST["termcheckbox"]))
     {
@@ -56,7 +54,12 @@
         return;
     }
 
-    
+    //their is no error
+    ?>
+    <!-- this value will be handled by main script  -->
+    <div id="success">success</div>
+
+    <?php
     $query = "SELECT MAX(user_id) FROM user_info";
     $maxID = mysqli_query($connect,$query);
 
@@ -64,9 +67,6 @@
     {
         $maxID = mysqli_fetch_array($maxID)[0] + 1;
     }
-
-    
-    
 
     //add user info to database
     $query = "INSERT INTO user_info(`user_id`, `first_name`, `last_name`, `email`, `password`, `mobile`, `address1`, `address2`) 
@@ -78,11 +78,6 @@
     ?>
 
 </body>
-
-<script>
-    // there is no error in registering, display successful message. 
-    $("#form_content").html('<div class="text-center font-weight-bold text-success">You have successfully registered and logged in</div>');
-</script>
 
 
 </html>

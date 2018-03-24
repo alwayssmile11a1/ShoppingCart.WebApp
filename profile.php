@@ -1,12 +1,12 @@
 <?php 
 session_start(); 
 
-if(isset($_SESSION["user_id"]))
+if(!isset($_SESSION["user_id"]))
 {
-    header("location:profile.php");
+    header("location:index.php");
 }
 
-?>  
+?>
 
 </<!DOCTYPE html>
 <html>
@@ -49,15 +49,16 @@ if(isset($_SESSION["user_id"]))
                 <!-- search bar -->
                 <form class="form-inline ml-5 my-lg-0">
                     <input style="width:32rem" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search_box">
-                    <button class="btn btn-outline-success my-2 my-sm-0" id = "search_button">Search</button>
+                    <button class="btn btn-outline-success my-2 my-sm-0" id="search_button">Search</button>
                 </form>
-
+                
             </ul>
             <ul class="navbar-nav mr-1">
 
-                <!-- cart button
+                <!-- cart button -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="cartDropDown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cart</a>
+
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="cartDropDown">
                         <table class="table">
                             <thead class="thead-light">
@@ -66,52 +67,38 @@ if(isset($_SESSION["user_id"]))
                                     <th scope="col">Image</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Price</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
+                            <!-- driven by script -->
+                            <tbody id="in_cart_products">
+
                             </tbody>
                         </table>
+                        <div>
+                            <button class="btn btn-success btn-sm mr-1" style="float: right">Check out</button>
+                        </div>
+                        <div>
+                            <button class="btn btn-danger btn-sm mr-2" style="float: right" id="delete_all_button">Delete all</button>
+                        </div>
+
                     </div>
 
-                </li> -->
+                </li>
 
-                <!-- sign in button -->
+                <!-- profile button -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="signInDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    <a class="nav-link dropdown-toggle font-weight-bold" href="#" id="signInDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
-                        SignIn
+                        <?php echo "Hi, ". $_SESSION["name"] ?>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="signInDropdown">
-                        <form class="px-4 py-3">
-                            <div class="form-group">
-                                <label for="FormEmail">Email address</label>
-                                <input type="email" class="form-control" id="FormEmail" placeholder="email@example.com">
-                            </div>
-                            <div class="form-group">
-                                <label for="FormPassword">Password</label>
-                                <input type="password" class="form-control" id="FormPassword" placeholder="Password">
-                            </div>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                                <label class="form-check-label" for="dropdownCheck"> Remember me </label>
-                            </div>
-                            <button type = "submit" class="btn btn-primary mt-1" id = "signin_button" href="#">Sign in</button>
-                            <div id= "signin_error" class="font-weight-bold text-danger text-sm"> </div>
-                        </form>
+                        <a class="dropdown-item" href="#">Cart</a>
+                        <a class="dropdown-item" href="#">Change password</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="registration_form.php">New around here? Sign up</a>
-                        <a class="dropdown-item" href="#">Forgot password?</a>
+                        <a class="dropdown-item" href="logout.php">Log out</a>
                     </div>
-                </li>
-                <!-- sign up button -->
-                <li class="nav-item">
-                    <a class="nav-link" href="registration_form.php">SignUp</a>
                 </li>
             </ul>
 

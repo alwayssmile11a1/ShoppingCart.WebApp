@@ -34,9 +34,13 @@
                     <div class="mt-3 text-center font-weight-bold">Sign up</div>
                     <div class="card-body">
                         <form class="px-4 py-0">
-                            <div class="form-group form-inline">
-                                <input type="text" class="form-control" name="firstName" placeholder="First name">
-                                <input type="text" class="form-control ml-2" name="lastName" placeholder="Last name">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" style="display: block" name="firstName" placeholder="First name">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" name="lastName" placeholder="Last name">
+                                </div>
                             </div>
                             <div class="form-group">
                                 <input type="email" class="form-control" name="email" placeholder="email@example.com">

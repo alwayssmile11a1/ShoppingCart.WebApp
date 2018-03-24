@@ -15,7 +15,7 @@
                 {
         ?>
 
-                    <a class="list-group-item list-group-item-action brand" brandID="<?php echo $brand["brand_id"] ?>">
+                    <a class="list-group-item list-group-item-action brand" brandID="<?php echo $brand['brand_id'] ?>">
                         <?php echo $brand["brand_title"]; ?>
                     </a>
 

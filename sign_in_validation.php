@@ -3,40 +3,39 @@
 <body>
     <?php
 
+    session_start();
+
     if(!isset($_POST['email'])) return;
 
     include "dbconnection.php";
 
-    echo "hello";
-
     $email = mysqli_real_escape_string($connect, $_POST['email']);
     $password = md5(mysqli_real_escape_string($connect, $_POST['password']));
+
+    echo $email;
+    echo $password;
 
     //get user info
     $query = "SELECT* FROM user_info where email = '$email' AND password ='$password'";
     $userinfo = mysqli_query($connect,$query);
 
+    //sign in successfully
     if(mysqli_num_rows($userinfo)>0)
     {
-        $userinfo = mysqli_fetch_array($userinfo);
-   
-
-        echo "name already exists";
-        return;
-    }
-    else
-    {
         ?>
-        <script>
-        // there is error in signing in
-        $("#signin_error").html('<div class="font-weight-bold text-danger">Email or password is not correct</div>');
-        </script>
 
+        <!-- this value will be handled by main script  -->
+        <div id="success">success</div>
 
         <?php
+
+        $userinfo = mysqli_fetch_array($userinfo);
+        
+        $_SESSION["user_id"] = $userinfo["user_id"];
+        $_SESSION["name"] = $userinfo["first_name"]." ".$userinfo["last_name"];
+
+
     }
-
-
 
     ?>
 
