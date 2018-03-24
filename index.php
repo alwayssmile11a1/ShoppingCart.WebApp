@@ -91,16 +91,18 @@
                                 <input type="checkbox" class="form-check-input" id="dropdownCheck">
                                 <label class="form-check-label" for="dropdownCheck"> Remember me </label>
                             </div>
-                            <button type="submit" class="btn btn-primary">Sign in</button>
+                            <a href="#" class="btn btn-primary" id = "signin_button">Sign in</a>
+                            <div "signin_error"> </div>
+
                         </form>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="registration.php">New around here? Sign up</a>
+                        <a class="dropdown-item" href="registration_form.php">New around here? Sign up</a>
                         <a class="dropdown-item" href="#">Forgot password?</a>
                     </div>
                 </li>
                 <!-- sign up button -->
                 <li class="nav-item">
-                    <a class="nav-link" href="registration.php">SignUp</a>
+                    <a class="nav-link" href="registration_form.php">SignUp</a>
                 </li>
             </ul>
 

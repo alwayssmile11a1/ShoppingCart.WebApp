@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    alert("hello");
     getCategories();
     getBrands();
     getProducts("random","random");
@@ -36,6 +37,15 @@ $(document).ready(function () {
     $("#signup_button").click(function(){
         event.preventDefault();
         signUp();
+    })
+
+    $("#signin_button").click(function(){
+        event.preventDefault();
+
+        var email = $("#FormEmail").val();
+        var password = $("FormPassword").val();
+
+        signIn(email, password);
     })
 
     //-------------FUNCTIONS-------------------// 
@@ -83,7 +93,7 @@ $(document).ready(function () {
     function signUp()
     {
         $.ajax({  
-            url: "register.php",
+            url: "registration_validation.php",
             method:"POST",
             data: $("form").serialize(),
             success: function(result)
@@ -93,5 +103,21 @@ $(document).ready(function () {
             
         })
     }
+
+    function signIn(email, password)
+    {
+        $.ajax({  
+            url: "sign_in_validation.php",
+            method:"POST",
+            data: {email:email,password:password},
+            success: function(result)
+            {
+                $("#signin_error").html(result);
+            }
+            
+        })
+    }
+
+
 
 })

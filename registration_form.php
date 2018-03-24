@@ -26,7 +26,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-4"></div>
-            <div class="col-md-4" id ="form_content">
+            <div class="col-md-4" id="form_content">
                 <div class="container-fluid mb-3 text-center text-danger font-weight-bold" id="signup_error">
 
                 </div>
@@ -66,5 +66,6 @@
     </div>
 
 </body>
+
 
 </html>
