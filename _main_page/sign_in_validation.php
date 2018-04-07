@@ -7,7 +7,7 @@
 
     if(!isset($_POST['email'])) return;
 
-    include "dbconnection.php";
+    include "../_database_connection/dbconnection.php"; 
 
     $email = mysqli_real_escape_string($connect, $_POST['email']);
     $password = md5(mysqli_real_escape_string($connect, $_POST['password']));

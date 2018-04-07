@@ -6,7 +6,7 @@
 
         session_start();
 
-        include "dbconnection.php";      
+        include "../_database_connection/dbconnection.php"; 
 
         if(!isset($_POST["sentData"])) return;
 
@@ -43,10 +43,19 @@
 
         if(mysqli_num_rows($products)>0)
         {
+            $i = 0;
             while($product = mysqli_fetch_array($products))
             {
+                if($i%3==0)
+                {
                     ?>
-                        <div class="card mb-2 d-inline-block" style="width: 21rem" alt="Card image cap">
+                    <!-- <div class="row justify-content-start">                  -->
+                    <?php
+                }
+
+                ?>
+                    <!-- <div class="col-4"> -->
+                        <div class="card mb-1 d-inline-block" style="width: 21rem" alt="Card image cap">
                             <img class="card-img-top maximagesize" src="resources/<?php echo $product['product_image']; ?>"></img>
                             <div class="card-body">
                                 <p class="card-text">
@@ -54,21 +63,19 @@
                                 <a class="text-success">
                                     <?php echo $product["product_price"]; ?> đ</a>
 
-                                <?php 
-
-                                if(isset($_SESSION["user_id"]))
-                                {
-                                    ?>
-                                <button class="btn btn-primary btn-sm addtocart" style="float:right" type="submit" productID="<?php echo $product['product_id']; ?>">AddToCard</button>
-                                <?php
-                                }
-
-                                ?>
+                                <button class="btn btn-primary btn-sm addtocart" style="float:right" type="submit" productID="<?php echo $product['product_id']; ?>">AddToCard</button>                               
                             </div>
                         </div>
+                    <!-- </div> -->
+                <?php
 
+                $i++;
+                if($i%3==0)
+                {
+                    ?>
+                    <!-- </div>                     -->
                     <?php
-
+                }
             }
         }
            

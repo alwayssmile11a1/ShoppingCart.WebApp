@@ -5,7 +5,7 @@
         <h5 href="#" class="list-group-item list-group-item-action active "> Categories</h5>
 
         <?php 
-            include "dbconnection.php"; 
+            include "../_database_connection/dbconnection.php"; 
             $category_query = "SELECT* FROM categories";
             $categories = mysqli_query($connect,$category_query);
 

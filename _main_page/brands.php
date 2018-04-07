@@ -5,7 +5,7 @@
         <h5 href="#" class="mt-3 list-group-item list-group-item-action active ">Brands</h5>
 
         <?php 
-            include "dbconnection.php"; 
+            include "../_database_connection/dbconnection.php"; 
             $brand_query = "SELECT* FROM brands";
             $brands = mysqli_query($connect,$brand_query);
 

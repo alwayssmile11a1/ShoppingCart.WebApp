@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Registration</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="extensions/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/stylesheet.css" />
-    <script src="extensions/js/jquery.min.js"></script>
-    <script src="extensions/js/bootstrap.min.js"></script>
-    <script src="mainscript.js"></script>
+    <link rel="stylesheet" href="../extensions/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/stylesheet.css" />
+    <script src="../extensions/js/jquery.min.js"></script>
+    <script src="../extensions/js/bootstrap.min.js"></script>
+    <script src="../_scripts/main_script.js"></script>
 </head>
 
 <body>
     <!-- taskbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-danger">
         <!-- shop name -->
-        <a class="navbar-brand" href="#">CLOVERSHOP</a>
+        <a class="navbar-brand text-white font-weight-bold" href="../index.php">CLOVERSHOP</a>
     </nav>
     <p>
         <br/>

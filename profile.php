@@ -20,7 +20,7 @@ if(!isset($_SESSION["user_id"]))
     <link rel="stylesheet" href="css/stylesheet.css" />
     <script src="extensions/js/jquery.min.js"></script>
     <script src="extensions/js/bootstrap.min.js"></script>
-    <script src="mainscript.js"></script>
+    <script src="_scripts/main_script.js"></script>
 </head>
 
 <body>
@@ -28,7 +28,7 @@ if(!isset($_SESSION["user_id"]))
     <!-- taskbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-danger">
         <!-- shop name -->
-        <a class="navbar-brand text-white" href="#">CLOVERSHOP</a>
+        <a class="navbar-brand text-white font-weight-bold" href="profile.php">CLOVERSHOP</a>
 
         <!-- collapse button when the web view is small -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -58,7 +58,21 @@ if(!isset($_SESSION["user_id"]))
 
                 <!-- cart button -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="cartDropDown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cart</a>
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="cartDropDown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Cart 
+                        <span class="badge badge-light">
+                         <?php 
+                            if(isset($_SESSION["cart"]))
+                            {  
+                                echo count($_SESSION["cart"]);
+                            } 
+                            else
+                            {
+                                echo 0;
+                            }
+                         ?>
+                        </span>
+                    </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="cartDropDown">
                         <table class="table">
@@ -78,7 +92,7 @@ if(!isset($_SESSION["user_id"]))
                             </tbody>
                         </table>
                         <div>
-                            <button class="btn btn-success btn-sm mr-1" style="float: right">Check out</button>
+                            <a class="btn btn-success btn-sm mr-1" href="_cart/cart.php" style="float: right" id ="checkout_button">Check out</a>
                         </div>
                         <div>
                             <button class="btn btn-danger btn-sm mr-2" style="float: right" id="delete_all_button">Delete all</button>
@@ -90,15 +104,15 @@ if(!isset($_SESSION["user_id"]))
 
                 <!-- profile button -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle font-weight-bold" href="#" id="signInDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    <a class="nav-link dropdown-toggle font-weight-bold text-white" href="#" id="signInDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
                         <?php echo "Hi, ". $_SESSION["name"] ?>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="signInDropdown">
-                        <a class="dropdown-item" href="#">Cart</a>
+                        <a class="dropdown-item" href="_cart/cart.php">My cart</a>
                         <a class="dropdown-item" href="#">Change password</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="logout.php">Log out</a>
+                        <a class="dropdown-item" href="_main_page/logout.php">Log out</a>
                     </div>
                 </li>
             </ul>

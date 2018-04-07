@@ -1,23 +1,24 @@
 $(document).ready(function () {
-    alert("dsada");
     getCategories();
     getBrands();
     getProducts("random", "random");
-    $(document).delegate(".category", "click", function () {
+    getInCartProducts();
+
+    $("body").on("click", ".category", function () {
 
         var categoryID = $(this).attr("categoryID");
         getProducts(categoryID, "category");
 
     });
 
-    $(document).delegate(".brand", "click", function () {
+    $("body").on("click", ".brand", function () {
 
         var brandID = $(this).attr("brandID");
         getProducts(brandID, "brand");
 
     });
 
-    $(document).delegate(".addtocart", "click", function () {
+    $("body").on("click", ".addtocart", function () {
         event.preventDefault();
         var productID = $(this).attr("productID");
         addProductToCart(productID);
@@ -54,17 +55,30 @@ $(document).ready(function () {
 
     $("#delete_all_button").click(function () {
         event.preventDefault();
-        deleteProductFromCart("All","");
-        alert("Hello");
+        changeInCartProducts("all","");
     })
-
+    $("body").on("click", ".delete_one_product_button", function () {
+        event.preventDefault();
+        var productID = $(this).attr("productID");
+        changeInCartProducts("row",productID);
+    })
+    $("body").on("click", ".subtract_one_quantity_button", function () {
+        event.preventDefault();
+        var productID = $(this).attr("productID");
+        changeInCartProducts("subtract",productID);
+    })
+    $("body").on("click", ".plus_one_quantity_button", function () {
+        event.preventDefault();
+        var productID = $(this).attr("productID");
+        changeInCartProducts("plus",productID);
+    })
 
 
     //-------------FUNCTIONS-------------------// 
 
     function getCategories() {
         $.ajax({
-            url: "categories.php",
+            url: "_main_page/categories.php",
             method: "POST",
             success: function (result) {
                 $("#categories").html(result);
@@ -75,7 +89,7 @@ $(document).ready(function () {
 
     function getBrands() {
         $.ajax({
-            url: "brands.php",
+            url: "_main_page/brands.php",
             method: "POST",
             success: function (result) {
                 $("#brands").html(result);
@@ -86,7 +100,7 @@ $(document).ready(function () {
 
     function getProducts(sentData, detail) {
         $.ajax({
-            url: "products.php",
+            url: "_main_page/products.php",
             method: "POST",
             data: {
                 sentData: sentData,
@@ -99,9 +113,21 @@ $(document).ready(function () {
         })
     }
 
+    function getInCartProducts()
+    {
+        $.ajax({
+            url: "_main_page/cart.php",
+            method: "POST",
+            success: function (result) {
+                $("#in_cart_products").html(result);
+            }
+
+        })
+    }
+
     function addProductToCart(id) {
         $.ajax({
-            url: "cart.php",
+            url: "_main_page/cart.php",
             method: "POST",
             data: {
                 productID: id
@@ -114,9 +140,9 @@ $(document).ready(function () {
         })
     }
 
-    function deleteProductFromCart(info, id) {
+    function changeInCartProducts(info, id) {
         $.ajax({
-            url: "cart.php",
+            url: "_main_page/cart.php",
             method: "POST",
             data: {
                 deleteCartAction: info,
@@ -133,7 +159,7 @@ $(document).ready(function () {
 
     function signUp() {
         $.ajax({
-            url: "registration_validation.php",
+            url: "_registration_form/registration_validation.php",
             method: "POST",
             data: $("form").serialize(),
             success: function (result) {
@@ -152,7 +178,7 @@ $(document).ready(function () {
 
     function signIn(email, password) {
         $.ajax({
-            url: "sign_in_validation.php",
+            url: "_main_page/sign_in_validation.php",
             method: "POST",
             data: {
                 email: email,
