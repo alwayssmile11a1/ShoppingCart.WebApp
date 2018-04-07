@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    alert("dsada");
     getCategories();
     getBrands();
     getProducts("random", "random");
@@ -53,7 +54,8 @@ $(document).ready(function () {
 
     $("#delete_all_button").click(function () {
         event.preventDefault();
-        addProductToCart("");
+        deleteProductFromCart("All","");
+        alert("Hello");
     })
 
 
@@ -111,6 +113,23 @@ $(document).ready(function () {
 
         })
     }
+
+    function deleteProductFromCart(info, id) {
+        $.ajax({
+            url: "cart.php",
+            method: "POST",
+            data: {
+                deleteCartAction: info,
+                productID: id
+            },
+            success: function (result) {
+                
+                $("#in_cart_products").html(result);
+            }
+
+        })
+    }
+
 
     function signUp() {
         $.ajax({

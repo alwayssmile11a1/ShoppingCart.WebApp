@@ -6,7 +6,7 @@ if(isset($_SESSION["user_id"]))
     header("location:profile.php");
 }
 
-?>  
+?>
 
 </<!DOCTYPE html>
 <html>
@@ -24,10 +24,11 @@ if(isset($_SESSION["user_id"]))
 </head>
 
 <body>
+<div class ="bg-light">
     <!-- taskbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-danger">
         <!-- shop name -->
-        <a class="navbar-brand" href="#">CLOVERSHOP</a>
+        <a class="navbar-brand text-white" href="#">CLOVERSHOP</a>
 
         <!-- collapse button when the web view is small -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -38,52 +39,25 @@ if(isset($_SESSION["user_id"]))
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#" id="home_button">Home
+                    <a class="nav-link text-white" href="#" id="home_button">Home
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Product</a>
+                    <a class="nav-link text-white" href="#">Product</a>
                 </li>
 
                 <!-- search bar -->
                 <form class="form-inline ml-5 my-lg-0">
-                    <input style="width:32rem" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search_box">
-                    <button class="btn btn-outline-success my-2 my-sm-0" id = "search_button">Search</button>
+                    <input style="width:32rem" class="form-control mr-sm-2 clearfix" type="search" placeholder="Search" aria-label="Search" id="search_box">
+                    <button class="btn btn-light my-2 my-sm-0" id="search_button">Search</button>
                 </form>
 
             </ul>
             <ul class="navbar-nav mr-1">
-
-                <!-- cart button
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="cartDropDown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cart</a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="cartDropDown">
-                        <table class="table">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Image</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Price</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                </li> -->
-
                 <!-- sign in button -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="signInDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="signInDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
                         SignIn
                     </a>
@@ -101,8 +75,8 @@ if(isset($_SESSION["user_id"]))
                                 <input type="checkbox" class="form-check-input" id="dropdownCheck">
                                 <label class="form-check-label" for="dropdownCheck"> Remember me </label>
                             </div>
-                            <button type = "submit" class="btn btn-primary mt-1" id = "signin_button" href="#">Sign in</button>
-                            <div id= "signin_error" class="font-weight-bold text-danger text-sm"> </div>
+                            <button type="submit" class="btn btn-primary mt-1" id="signin_button" href="#">Sign in</button>
+                            <div id="signin_error" class="font-weight-bold text-danger text-sm"> </div>
                         </form>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="registration_form.php">New around here? Sign up</a>
@@ -111,7 +85,7 @@ if(isset($_SESSION["user_id"]))
                 </li>
                 <!-- sign up button -->
                 <li class="nav-item">
-                    <a class="nav-link" href="registration_form.php">SignUp</a>
+                    <a class="nav-link text-white" href="registration_form.php">SignUp</a>
                 </li>
             </ul>
 
@@ -131,20 +105,36 @@ if(isset($_SESSION["user_id"]))
                 <div id="brands"></div>
             </div>
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Products</div>
-                    <div class="card-body">
-
-                        <!--driven by main.js  -->
-                        <div id="products"></div>
-
-                    </div>
-                    <div class="card-footer text-muted"></div>
+                <ul class="nav nav-pills nav-fill bg-white clearfix">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Popular</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Newest</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Best selling</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Price</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Separated link</a>
+                        </div>
+                    </li>
+                
+                </ul>
+                <div class="mt-2">
+                    <!--driven by main.js  -->
+                    <div id="products"></div>
                 </div>
             </div>
         </div>
     </div>
-
+</div>
 </body>
 
 </html>

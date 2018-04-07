@@ -45,32 +45,29 @@
         {
             while($product = mysqli_fetch_array($products))
             {
-        ?>
-
-            <div class="card mb-3" style="width: 20rem;display:inline-block;" alt="Card image cap">
-                <img class="card-img-top maximagesize" src="resources/<?php echo $product['product_image']; ?>"></img>
-                <div class="card-body">
-                    <p class="card-text">
-                        <?php echo $product["product_title"]; ?> </p>
-                    <a class="text-success">
-                        <?php echo $product["product_price"]; ?> </a>
-
-                    <?php 
-
-                    if(isset($_SESSION["user_id"]))
-                    {
-                        ?>
-                    <button class="btn btn-primary btn-sm addtocart" style="float:right" type="submit" productID="<?php echo $product['product_id']; ?>">AddToCard</button>
-                    <?php
-                    }
-
-                    
-
                     ?>
-                </div>
-            </div>
+                        <div class="card mb-2 d-inline-block" style="width: 21rem" alt="Card image cap">
+                            <img class="card-img-top maximagesize" src="resources/<?php echo $product['product_image']; ?>"></img>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <?php echo $product["product_title"]; ?> </p>
+                                <a class="text-success">
+                                    <?php echo $product["product_price"]; ?> đ</a>
 
-            <?php
+                                <?php 
+
+                                if(isset($_SESSION["user_id"]))
+                                {
+                                    ?>
+                                <button class="btn btn-primary btn-sm addtocart" style="float:right" type="submit" productID="<?php echo $product['product_id']; ?>">AddToCard</button>
+                                <?php
+                                }
+
+                                ?>
+                            </div>
+                        </div>
+
+                    <?php
 
             }
         }

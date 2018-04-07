@@ -6,11 +6,13 @@
 
     session_start();
 
-    if(!isset($_POST["productID"]))
+    if(isset($_POST["deleteCartAction"]))
     {
-        unset($_SESSION['cart']);
-        echo "Hello";
-        return;
+        if(strcmp($_POST["deleteCartAction"],"All")==0) 
+        {
+            unset($_SESSION['cart']);
+            return;
+        }      
     }
 
 
