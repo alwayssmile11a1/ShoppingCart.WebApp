@@ -60,37 +60,14 @@ if(isset($_SESSION["user_id"]))
                         <a class="nav-link dropdown-toggle text-white" href="#" id="cartDropDown" href="#" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
                             Cart
-                            <span class="badge badge-light">
-                                <?php 
-                            if(isset($_SESSION["cart"]))
-                            {  
-                                echo count($_SESSION["cart"]);
-                            } 
-                            else
-                            {
-                                echo 0;
-                            }
-                         ?>
-                            </span>
+                            <span class="badge badge-light">0</span>
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="cartDropDown">
-                            <table class="table">
-                                <thead class="thead-light">
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Image</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Price</th>
-                                        <th scope="col">Quantity</th>
-                                        <th scope="col">Action</th>
-                                    </tr>
-                                </thead>
-                                <!-- driven by script -->
-                                <tbody id="in_cart_products">
+                            <!-- driven by script -->
+                            <div id="in_cart_products">
 
-                                </tbody>
-                            </table>
+                            </div>
                             <div>
                                 <a class="btn btn-success btn-sm mr-1" href="_cart/cart.php" style="float: right">Check out</a>
                             </div>
@@ -173,13 +150,15 @@ if(isset($_SESSION["user_id"]))
                         </li>
 
                     </ul>
-                    <div class="mt-2">
+                    <div class="mt-2" id="products">
                         <!--driven by main.js  -->
-                        <div id="products"></div>
                     </div>
+
                 </div>
             </div>
+
         </div>
+
     </div>
 </body>
 

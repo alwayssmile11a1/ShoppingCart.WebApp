@@ -73,6 +73,12 @@ $(document).ready(function () {
         changeInCartProducts("plus",productID);
     })
 
+    $("body").on("click", ".page_number_button", function () {
+        event.preventDefault();
+        alert("Hello");
+        var pageNumber = $(this).attr("pageNumber");
+        changePage("plus",pageNumber);
+    })
 
     //-------------FUNCTIONS-------------------// 
 
@@ -151,6 +157,22 @@ $(document).ready(function () {
             success: function (result) {
                 
                 $("#in_cart_products").html(result);
+            }
+
+        })
+    }
+
+    function changePage(info, id) {
+        $.ajax({
+            url: "_main_page/cart.php",
+            method: "POST",
+            data: {
+                changePage: info,
+                pageNumber: id
+            },
+            success: function (result) {
+                
+                $("#products").html(result);
             }
 
         })
