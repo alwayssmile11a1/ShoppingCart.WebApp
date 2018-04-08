@@ -2,7 +2,7 @@
 
 <body>
     <div class="list-group">
-        <h5 href="#" class="mt-3 list-group-item list-group-item-action active ">Brands</h5>
+        <h5 href="#" class="mt-3 list-group-item list-group-item-action active" id ="brands_header">Brands</h5>
 
         <?php 
             include "../_database_connection/dbconnection.php"; 

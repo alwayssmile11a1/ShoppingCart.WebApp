@@ -37,7 +37,7 @@
                         <button class="btn btn-danger btn-sm mr-2" id="delete_all_button">Delete all</button>
                         </div>
                     </div> -->
-                    <h2 class="row justify-content-end mt-5 font-weight-bold font-italic text-success" id="total_price">
+                    <h2 class="row justify-content-end mt-5 mr-2 font-weight-bold font-italic text-success" id="total_price">
                         
                     </h2>
                     <div class="row justify-content-center">
@@ -46,18 +46,18 @@
                             if(isset($_SESSION['cart']) && count($_SESSION['cart'])>0)
                             {
                                 ?>
-                                <a class="btn btn-lg btn-success" href="_cart/cart.php">Check out</a>
+                                <a class="btn btn-lg btn-success" href="../_payment/payment.php">Check out</a>
                                 <?php
                             }
                             else
                             {
                                 ?>
-                                <a class="btn btn-lg btn-success disabled" href="#"aria-disabled="true">Check out</a>
+                                <a class="btn btn-lg btn-success disabled" href="../_payment/payment.php" aria-disabled="true">Check out</a>
                                 <?php
                             }       
                         ?>
                     </div>
-                    <h6 class="row mt-5 justify-content-end font-weight-light font-italic">All right reserved</h6>
+                    <h6 class="row mt-5 justify-content-end font-weight-light font-italic mr-1">All right reserved</h6>
                 </div>
             </div>
            

@@ -2,18 +2,25 @@ $(document).ready(function () {
     getCategories();
     getBrands();
     getProducts("random", "random");
-    getInCartProducts();
-
+    getInCartProducts();;
     $("body").on("click", ".category", function () {
-
-        var categoryID = $(this).attr("categoryID");
+        event.preventDefault();
+        var categoryID = $(this).attr("categoryID");       
+        $(this).addClass('list-group-item-secondary').siblings().removeClass('list-group-item-secondary');     
+        $(".brand").each(function(){
+            $(this).removeClass('list-group-item-secondary');
+        });
         getProducts(categoryID, "category");
 
     });
 
     $("body").on("click", ".brand", function () {
-
+        event.preventDefault();
         var brandID = $(this).attr("brandID");
+        $(this).addClass('list-group-item-secondary').siblings().removeClass('list-group-item-secondary');
+        $(".category").each(function(){
+            $(this).removeClass('list-group-item-secondary');
+        });
         getProducts(brandID, "brand");
 
     });

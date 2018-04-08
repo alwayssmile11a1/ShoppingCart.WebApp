@@ -2,7 +2,7 @@
 
 <body>
     <div class="list-group">
-        <h5 href="#" class="list-group-item list-group-item-action active "> Categories</h5>
+        <h5 href="#" class="list-group-item list-group-item-action active" id ="categories_header"> Categories</h5>
 
         <?php 
             include "../_database_connection/dbconnection.php"; 
