@@ -130,9 +130,8 @@ if(!isset($_SESSION["user_id"]))
                     </li>
 
                 </ul>
-                <div class="mt-2">
+                <div class="mt-2" id="products">
                     <!--driven by main.js  -->
-                    <div id="products"></div>
                 </div>
             </div>
         </div>

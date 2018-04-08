@@ -8,12 +8,20 @@
 
         include "../_database_connection/dbconnection.php"; 
 
-        if(!isset($_POST["sentData"])) return;
+        if(isset($_POST["sentData"]))
+        {
+            $data = $_POST["sentData"];
+            $detail =  $_POST["detail"];
+            $_SESSION["savedData"] = $data;
+            $_SESSION["savedDetail"] = $detail;
+        }
+        else
+        {       
+            $data = $_SESSION["savedData"];
+            $detail =  $_SESSION["savedDetail"];
+        }   
 
-        $data = $_POST["sentData"];
-        $detail =  $_POST["detail"];
-        $numberOfProductsInOnePage = 4;
-
+        $numberOfProductsInOnePage = 12;
         $product_query;
         $productCount = 0;
         $offset = 0;
@@ -109,7 +117,7 @@
                 {
                     ?>
                     <li class="page-item active" >
-                        <a class="page-link page_number_button" href="#" pageNumber = "<?php echo $i; ?>"> <?php echo ($i+1); ?> <span class="sr-only">(current)</span> </a>
+                        <a class="page-link page_number_button" href="#" pageNumber = "<?php echo $i+1; ?>"> <?php echo ($i+1); ?> <span class="sr-only">(current)</span> </a>
                     </li>
                     <?php
                 }
@@ -117,7 +125,7 @@
                 {
                     ?>
                     <li class="page-item">
-                        <a class="page-link page_number_button" href="#" pageNumber = "<?php echo $i; ?>"> <?php echo ($i+1); ?> </a>
+                        <a class="page-link page_number_button" href="#" pageNumber = "<?php echo $i+1; ?>"> <?php echo ($i+1); ?> </a>
                     </li>
                     <?php
                 }              

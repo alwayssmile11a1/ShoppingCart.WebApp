@@ -75,9 +75,8 @@ $(document).ready(function () {
 
     $("body").on("click", ".page_number_button", function () {
         event.preventDefault();
-        alert("Hello");
         var pageNumber = $(this).attr("pageNumber");
-        changePage("plus",pageNumber);
+        changePage("change",pageNumber);
     })
 
     //-------------FUNCTIONS-------------------// 
@@ -164,7 +163,7 @@ $(document).ready(function () {
 
     function changePage(info, id) {
         $.ajax({
-            url: "_main_page/cart.php",
+            url: "_main_page/products.php",
             method: "POST",
             data: {
                 changePage: info,
